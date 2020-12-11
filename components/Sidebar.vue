@@ -5,11 +5,15 @@
       v-show="toggle"
       class="h-screen md:h-full bg-blue-fitu-100 fixed lg:w-1/6 w-4/6 z-30"
     >
-      <div class="bg-blue-fitu-200 flex flex-col items-center justify-center h-20">
-        <div class="w-32">
-          <img src="/images/logo.png" alt="logo">
-        </div>
-        <p class="text-center text-white text-sm">Pets</p>
+      <div @click.prevent="hideMenu()">
+        <n-link
+          to="/"
+          class="bg-blue-fitu-200 flex flex-col items-center justify-center h-20">
+          <div class="w-32">
+            <img src="/images/logo.png" alt="logo">
+          </div>
+          <p class="text-center text-white text-sm">Pets</p>
+        </n-link>
       </div>
       <div class="lg:h-64 flex items-center ">
         <div class="w-full">
@@ -49,7 +53,7 @@ export default {
         slug: '/add-pet'
       },
     ],
-    toggle: false,
+    toggle: true,
     window: {
         width: 0,
     },
@@ -69,14 +73,15 @@ export default {
   methods: {
     hideMenu() {
       EventBus.$emit('hideMenu');
-      this.toggle = !this.toggle;
+      this.handleResize()
     },
     handleResize() {
       this.window.width = window.innerWidth;
-      if (this.window.width > 769) {
-        this.toggle = true;
-      } else {
+      console.log(this.window.width)
+      if (this.window.width < 769) {
         this.toggle = false;
+      } else {
+        this.toggle = true;
       }
     }
   }

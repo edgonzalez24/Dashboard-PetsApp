@@ -39,33 +39,33 @@
                 v-for="(pet, index) in pets"
                 :key="index"
               >
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{pet.id}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-gray-500">
                   {{pet.name}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{pet.kind}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div
                     :style="{background:pet.color}"
                     class="rounded-full h-4 w-4"/>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{pet.breed}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 whitespace-nowrap text-sm text-gray-500">
                   {{pet.gender}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{pet.age}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{pet.created_at}}
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {{customFormatter(pet.created_at)}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex justify-between">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-right text-sm font-medium flex justify-between">
                   <div>
                     <img src="/icons/edit.svg" alt="icon-edit" class="h-5 w-5">
                   </div>
@@ -93,6 +93,11 @@ export default {
       immediate: true,
       default: false,
       type: Boolean,
+    }
+  },
+  methods: {
+    customFormatter(date){
+      return this.$moment(date).format('lll');
     }
   }
 }
