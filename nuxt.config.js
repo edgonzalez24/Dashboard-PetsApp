@@ -40,7 +40,11 @@ export default {
     components: true,
     buildModules: [
         '@nuxtjs/tailwindcss',
+        '@nuxtjs/moment',
     ],
+    moment: {
+        locales: []
+    },
     modules: [
         '@nuxtjs/axios',
         '@nuxtjs/dotenv',
