@@ -9,10 +9,22 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.12.3",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "gsap": "^3.5.1",
+    "nuxt": "^2.14.6",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^3.1.0"
+    "@nuxtjs/eslint-config": "^5.0.0",
+    "@nuxtjs/tailwindcss": "^3.1.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.15.0"
   }
 }
