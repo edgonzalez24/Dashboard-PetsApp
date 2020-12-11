@@ -1,78 +1,49 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        dashboard-pets
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <main class="w-full relative md:h-screen">
+    <div class="border-b-2 shadow-md h-20">
+      <div class="container h-full">
+        <div class="w-32 relative flex items-center justify-center h-full">
+          <p class="text-blue-fitu-200 font-bold text-lg">All</p>
+          <div class="absolute bottom-0 w-full h-1 bg-blue-fitu-200 rounded-lg"/>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="bg-white-smoke-200 h-full p-5">
+      <h4 class="font-bold text-2xl text-blue-fitu-300">Pets</h4>
+      <Table
+        :loading="loading"
+        :pets="pets"
+      />
+    </div>
+  </main>
 </template>
 
 <script>
-export default {}
+import Table from '@/components/Table';
+
+export default {
+  components: {
+    Table
+  },
+  data:() => ({
+    pets: [],
+    loading: false,
+  }),
+  async mounted() {
+    await this.getPets();
+  },
+  methods: {
+    async getPets () {
+      this.loading = !this.loading;
+      try {
+        const { data }= await this.$axios.get('/api/services/getpets');
+        this.pets = data;
+      } catch(err) {
+        console.log(err);
+      } finally {
+        this.loading = !this.loading;
+      }
+    }
+  }
+}
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
