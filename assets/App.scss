@@ -67,12 +67,14 @@
     transform: rotate(-135deg);
 }
 
-#sidebar {
-    .animation-open {
-        transition: transform 0.2s ease;
+@media(max-width:769px) {
+    .slide-enter-active,
+    .slide-leave-active {
+        transition: transform 0.5s ease;
     }
-    .animation-close {
+    .slide-enter,
+    .slide-leave-to {
         transform: translateX(-100%);
-        transition: all 150ms ease-in 0s
+        transition: all 200ms ease-in 0s
     }
 }

@@ -24,6 +24,11 @@ export default {
   data: () => ({
     toggle: false,
   }),
+  mounted(){
+    EventBus.$on('hideMenu', () => {
+        this.toggle = !this.toggle;
+    });
+  },
   methods: {
     showMenu() {
       this.toggle = !this.toggle;
