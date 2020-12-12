@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full relative md:h-screen">
+  <main class="w-full relative md:h-screen fadeIn">
     <div class="border-b-2 shadow-md h-20">
       <div class="container h-full">
         <div class="w-32 relative flex items-center justify-center h-full">
@@ -13,13 +13,14 @@
       <Table
         :loading="loading"
         :pets="pets"
+        @getPets="getPets"
       />
     </div>
   </main>
 </template>
 
 <script>
-import Table from '@/components/Table';
+import Table from '@/components/Pets/Table';
 
 export default {
   components: {

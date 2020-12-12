@@ -3,7 +3,7 @@
     <div
       id="sidebar"
       v-show="toggle"
-      class="h-screen md:h-full bg-blue-fitu-100 fixed lg:w-1/6 w-4/6 z-30"
+      class="h-screen md:h-full bg-blue-fitu-100 fixed md:w-1/6 w-4/6 z-30"
     >
       <div @click.prevent="hideMenu()">
         <n-link
@@ -20,12 +20,13 @@
           <div
             v-for="(item, index) in mainMenu"
             :key="index"
-            class="border-l-4 border-green-100  flex w-full h-12 items-center"
+            class="border-l-4 flex  h-12 items-center"
+            :class="index === active ? 'border-green-100' : 'border-transparent'"
           >
-          <div @click.prevent="hideMenu()">
+          <div @click="hideMenu(index)">
             <n-link
               :to="item.slug"
-              class="w-auto flex ml-8">
+              class="w-auto flex ml-8  hover:opacity-50 transition duration-500 ease-in-out">
               <img :src="item.icon" :alt="item.name" class="w-6 h-6 mr-3">
               <p class="text-white font-bold text-sm"> {{item.name}}</p>
             </n-link>
@@ -45,15 +46,16 @@ export default {
       {
         icon: '/icons/paw.svg',
         name: 'Pets',
-        slug: '/'
+        slug: '/',
       },
       {
         icon: '/icons/dog.svg',
         name: 'Add pets',
-        slug: '/add-pet'
+        slug: '/add-pet',
       },
     ],
     toggle: true,
+    active: 0,
     window: {
         width: 0,
     },
@@ -71,13 +73,16 @@ export default {
     });
   },
   methods: {
-    hideMenu() {
+    setActive(value) {
+      this.active = value;
+    },
+    hideMenu(value) {
       EventBus.$emit('hideMenu');
-      this.handleResize()
+      this.handleResize();
+      this.setActive(value);
     },
     handleResize() {
       this.window.width = window.innerWidth;
-      console.log(this.window.width)
       if (this.window.width < 769) {
         this.toggle = false;
       } else {
