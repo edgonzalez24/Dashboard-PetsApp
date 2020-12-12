@@ -36,7 +36,13 @@ export default {
     },
     pageTransition: 'page',
     css: ['~/assets/App.scss'],
-    plugins: [],
+    plugins: [{
+            src: '~/plugins/vue-select.js',
+        },
+        {
+            src: '~/plugins/vuelidate.js',
+        },
+    ],
     components: true,
     buildModules: [
         '@nuxtjs/tailwindcss',
