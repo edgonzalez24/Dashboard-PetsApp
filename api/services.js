@@ -38,6 +38,21 @@ app.get('/getpets', async(req, res) => {
         }
     }
 });
+app.post('/deletepets', async(req, res) => {
+    const { id } = req.body;
+    try {
+        res.header('Cache-Control', 'no-cache, no-store, must-revalidate');
+        res.header('Pragma', 'no-cache');
+        const { data } = await axios.delete(`${process.env.BASE_URL}/${id}?token=${process.env.TOKEN}`);
+        res.json(data);
+    } catch (error) {
+        if (error.response.status) {
+            res.status(error.response.status).json(error.response.data);
+        } else {
+            res.sendStatus(500);
+        }
+    }
+});
 module.exports = {
     path: '/api/services',
     handler: app,
