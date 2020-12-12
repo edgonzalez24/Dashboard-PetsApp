@@ -19,10 +19,11 @@
     "gsap": "^3.5.1",
     "nuxt": "^2.14.6",
     "nuxt-sweetalert2": "^1.0.0",
+    "nuxt-validate": "^1.0.1",
+    "path": "^0.12.7",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
-    "vue-select": "^3.10.8",
-    "vuelidate": "^0.7.6"
+    "vue-select": "^3.10.8"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
