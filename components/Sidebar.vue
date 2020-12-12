@@ -20,10 +20,10 @@
           <div
             v-for="(item, index) in mainMenu"
             :key="index"
-            class="border-l-4 flex  h-12 items-center"
-            :class="index === active ? 'border-green-100' : 'border-transparent'"
+            class="border-l-4 flex  h-12 items-center transition-height transition duration-1000 ease-in-out"
+            :class="$route.path === item.slug ? 'border-green-100' : 'border-transparent'"
           >
-          <div @click="hideMenu(index)">
+          <div @click="hideMenu()">
             <n-link
               :to="item.slug"
               class="w-auto flex ml-8  hover:opacity-50 transition duration-500 ease-in-out">
@@ -55,7 +55,6 @@ export default {
       },
     ],
     toggle: true,
-    active: 0,
     window: {
         width: 0,
     },
@@ -73,13 +72,9 @@ export default {
     });
   },
   methods: {
-    setActive(value) {
-      this.active = value;
-    },
     hideMenu(value) {
       EventBus.$emit('hideMenu');
       this.handleResize();
-      this.setActive(value);
     },
     handleResize() {
       this.window.width = window.innerWidth;

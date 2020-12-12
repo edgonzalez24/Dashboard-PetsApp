@@ -10,7 +10,7 @@
     </div>
     <div class="bg-white-smoke-200 h-full p-5">
       <h4 class="font-bold text-2xl text-blue-fitu-300">Pets</h4>
-      <Table
+      <TablePets
         :loading="loading"
         :pets="pets"
         @getPets="getPets"
@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import Table from '@/components/Pets/Table';
+import TablePets from '@/components/TablePets';
 
 export default {
   components: {
-    Table
+    TablePets,
   },
   data:() => ({
     pets: [],
@@ -37,7 +37,7 @@ export default {
     async getPets () {
       this.loading = !this.loading;
       try {
-        const { data }= await this.$axios.get('/api/services/getpets');
+        const { data }= await this.$axios.get('/api/services/allpets');
         this.pets = data;
       } catch(err) {
         console.log(err);
