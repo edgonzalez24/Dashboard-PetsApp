@@ -164,10 +164,10 @@ export default {
     onlyNumb(e) {
       e = (e) ? e : window.event;
       let charCode = (e.which) ? e.which : e.keyCode;
-      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-        e.preventDefault();;
-      } else {666
+      if ( (charCode >= 48 && charCode <= 57 ) || (charCode >= 96 && charCode <= 105) || charCode === 8) {
         return true;
+      } else {
+        e.preventDefault();
       }
     },
     async createPet(){

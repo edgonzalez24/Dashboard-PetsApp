@@ -8,7 +8,7 @@
       <div @click.prevent="hideMenu()">
         <n-link
           to="/"
-          class="bg-blue-fitu-200 flex flex-col items-center justify-center h-20">
+          class="bg-blue-fitu-200 flex flex-col items-center justify-center h-20 transition duration-1000 ease-in-out hover:opacity-75">
           <img src="/images/logo.png" alt="logo" class="w-24 lg:w-32">
           <p class="text-center text-white text-sm">Pets</p>
         </n-link>
@@ -24,7 +24,7 @@
           <div @click="hideMenu()">
             <n-link
               :to="item.slug"
-              class="w-auto flex lg:ml-8 ml-4  hover:opacity-50 transition duration-500 ease-in-out">
+              class="w-auto flex items-center lg:ml-8 ml-4  hover:opacity-50 transition duration-500 ease-in-out">
               <img :src="item.icon" :alt="item.name" class="w-6 h-6 mr-3">
               <p class="text-white font-bold text-sm"> {{item.name}}</p>
             </n-link>
