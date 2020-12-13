@@ -9,7 +9,7 @@
         <n-link
           to="/"
           class="bg-blue-fitu-200 flex flex-col items-center justify-center h-20">
-            <img src="/images/logo.png" alt="logo" class="w-24">
+          <img src="/images/logo.png" alt="logo" class="w-24 lg:w-32">
           <p class="text-center text-white text-sm">Pets</p>
         </n-link>
       </div>
