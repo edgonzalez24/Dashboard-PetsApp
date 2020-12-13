@@ -18,7 +18,7 @@ export default {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
             {
                 rel: 'preload',
-                href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap',
+                href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap',
                 as: 'style',
                 onload: 'this.onload=null;this.rel=\'stylesheet\'',
             },

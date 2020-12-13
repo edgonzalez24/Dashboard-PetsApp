@@ -1,7 +1,7 @@
 <template>
   <div class="mt-5 md:mt-0 w-full">
       <form @submit.prevent="submit">
-        <div class="shadow-lg overflow-hidden sm:rounded-md">
+        <div class="shadow-lg sm:rounded-md">
           <div class="md:px-4 px-3 md:py-5 py-2 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-3">
               <div class="col-span-3">
@@ -59,13 +59,16 @@
 
               <div class="col-span-3">
                 <label for="name" class="block text-sm font-bold text-blue-fitu-300">Color</label>
-                <input
-                  v-model="pet.color"
-                  type="text"
-                  name="color"
-                  data-vv-as="Color"
-                  v-validate="'required'"
-                  class="mt-1 focus:outline-none border border-blue-fitu-300 block w-full shadow-sm text-sm rounded-md h-12 focus:bg-white bg-white-smoke-100 px-3 transition duration-500 ease-in-out ">
+                  <v-select
+                    v-model="pet.color"
+                    name="color"
+                    v-validate="'required'"
+                    data-vv-as="Color"
+                    :options="colors.length ? colors : []"
+                    class="mt-1 focus:outline-none border border-blue-fitu-300 shadow-sm text-sm rounded-md h-12 focus:bg-white bg-white-smoke-100 px-2 transition duration-500 ease-in-out text-black appearance-none"
+                    :reduce="option => option"
+                    :clearable="false" >
+                  </v-select>
                   <span class="text-red-600 lg:text-right text-center mb-2 text-xs">{{ errors.first('color') }}</span>
               </div>
 
@@ -121,6 +124,7 @@ export default {
     return {
       kinds: ["cat", "dog", "hamster", "bird", "fish", "turtle", "rabbit"],
       genders: ["male" , "female"],
+      colors: ["green", "red", "yellow", "black", "white", "purple", "blue", "saddlebrown","peru"],
       pet:{
         name: '',
         kind: '',

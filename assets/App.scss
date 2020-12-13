@@ -1,6 +1,6 @@
 @import "vue-select/src/scss/vue-select.scss";
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
 }
 
@@ -22,7 +22,7 @@
         position: absolute;
         height: 3px;
         width: 100%;
-        background: #005eb0;
+        background: #0a445c;
         border-radius: 9px;
         opacity: 1;
         left: 0;
@@ -138,15 +138,6 @@
     }
 }
 
-.efect-rotate {
-    transition: all 0.4s ease;
-}
-
-.efect-rotate-z {
-    transform: rotateZ(-180deg);
-    transition: all 0.4s ease;
-}
-
 .vs__dropdown-toggle {
     border: none !important;
     height: 100%;
@@ -201,4 +192,5 @@
 
 body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
     overflow: auto !important;
+    padding-right: 0 !important;
 }

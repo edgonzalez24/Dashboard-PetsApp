@@ -13,6 +13,9 @@ module.exports = {
                 },
                 'green': {
                     100: '#44d1b3'
+                },
+                'turquoise': {
+                    100: '#44d1b3'
                 }
             },
             minWidth: {

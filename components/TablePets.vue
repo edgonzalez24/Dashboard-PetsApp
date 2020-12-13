@@ -58,8 +58,13 @@
                 </td>
                 <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   <div
+                    v-if="pet.color === 'white'"
                     :style="{background:pet.color}"
-                    class="rounded-full h-4 w-4"/>
+                    class="rounded-full h-5 w-5 border border-black border-solid"/>
+                  <div
+                    v-else
+                    :style="{background:pet.color}"
+                    class="rounded-full h-5 w-5  border-solid"/>
                 </td>
                 <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{pet.breed}}
