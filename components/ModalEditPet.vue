@@ -2,23 +2,20 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container md:w-1/2">
-
+        <div class="modal-container lg:w-6/12 sm:w-4/5 w-11/12">
           <div class="mx-auto container">
             <div class="w-full">
+              <h4 class="font-bold text-2xl text-blue-fitu-300 mb-2">Update Pet</h4>
               <Form
                 :petSelected="petSelected"
-                @getPets="getPets"
                 edit
               />
             </div>
           </div>
-
-          <div class="modal-footer">
+          <div class="modal-footer flex items-end h-16 justify-end">
             <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                OK
+              <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-base rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none  transition duration-500 ease-in-out font-bold w-24" @click="$emit('close')">
+                Close
               </button>
             </slot>
           </div>
@@ -29,7 +26,9 @@
 </template>
 <script>
 import Form from '@/components/Form';
+
 export default {
+  name:'ModalEditPet',
   components: {
     Form,
   },

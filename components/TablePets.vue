@@ -11,34 +11,34 @@
     >
       <div class="py-2 align-middle inline-block min-w-full">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-          <table class="min-w-full divide-y divide-gray-200">
+          <table class="min-w-min-w-max lg:min-w-full divide-y divide-gray-200">
             <thead class="bg-white">
               <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   ID
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   Name
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   Type
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   Color
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   Breed
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   Gender
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   Age
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                   Created at
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
+                <th scope="col" class="md:px-6 px-2 py-3 text-left text-xs md:text-base font-bold text-blue-fitu-300 tracking-wider">
                 </th>
               </tr>
             </thead>
@@ -47,30 +47,30 @@
                 v-for="(pet, index) in pets"
                 :key="index"
               >
-                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{pet.id}}
                 </td>
-                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{pet.name}}
                 </td>
-                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{pet.kind}}
                 </td>
-                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   <div
                     :style="{background:pet.color}"
                     class="rounded-full h-4 w-4"/>
                 </td>
-                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{pet.breed}}
                 </td>
-                <td class="md:px-6 px-2 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{pet.gender}}
                 </td>
-                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{pet.age}}
                 </td>
-                <td class="md:px-6 px-2 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="md:px-6 px-2 py-4 whitespace-nowrap md:text-sm text-xs text-gray-500">
                   {{customFormatter(pet.created_at)}}
                 </td>
                 <td class="md:px-6 px-2 py-4 whitespace-nowrap text-right text-sm font-medium flex justify-between">

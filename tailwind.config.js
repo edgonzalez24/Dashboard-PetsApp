@@ -14,6 +14,15 @@ module.exports = {
                 'green': {
                     100: '#44d1b3'
                 }
+            },
+            minWidth: {
+                '0': '0',
+                '1/4': '25%',
+                '1/2': '50%',
+                '3/4': '75%',
+                'full': '100%',
+                'min-w-min': 'min-content',
+                'min-w-max': '1000px'
             }
         }
     },
